@@ -104,8 +104,14 @@
   export const dispose = (cb) => disposal.add(cb);
   export const requestPiP = () => standardPlayer.requestPiP();
   export const exitPiP = () => standardPlayer.exitPiP();
-  export const requestFullscreen = () => standardPlayer.requestFullscreen();
-  export const exitFullscreen = () => standardPlayer.exitFullscreen();
+  export const requestFullscreen = () => {
+    dispatch(PlayerEvent.GO_FULL_SCREEN);
+    return standardPlayer.requestFullscreen();
+  };
+  export const exitFullscreen = () => {
+    dispatch(PlayerEvent.HIDE_FULL_SCREEN);
+    return standardPlayer.exitFullscreen();
+  };
   
   export const createRegistry = (id) => {
     const subRegistry = new Registry(id);
