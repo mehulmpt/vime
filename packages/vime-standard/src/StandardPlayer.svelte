@@ -533,6 +533,6 @@
     && is_function($provider.setFullscreen);
   
   $: store.canSetFullscreen.set(
-    $isVideoReady && (FULLSCREEN_DOC_SUPPORT || canProviderFullscreen),
+    $isVideoReady,
   );
 </script>

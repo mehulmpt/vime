@@ -104,13 +104,20 @@
   export const dispose = (cb) => disposal.add(cb);
   export const requestPiP = () => standardPlayer.requestPiP();
   export const exitPiP = () => standardPlayer.exitPiP();
+
+  export const forceRequestFullscreen = () => {
+    $isFullscreenActive = true;
+  };
+
   export const requestFullscreen = () => {
     dispatch(PlayerEvent.GO_FULL_SCREEN);
-    return standardPlayer.requestFullscreen();
+    return Promise.reject();
+    // return standardPlayer.requestFullscreen();
   };
   export const exitFullscreen = () => {
     dispatch(PlayerEvent.HIDE_FULL_SCREEN);
-    return standardPlayer.exitFullscreen();
+    return Promise.reject();
+    // return standardPlayer.exitFullscreen();
   };
   
   export const createRegistry = (id) => {
